@@ -1,0 +1,137 @@
+@import "tailwindcss";
+
+:root {
+  --bg: radial-gradient(1200px 800px at 50% 0%, #101820 0%, #080b10 55%, #05070a 100%);
+  --panel: rgba(12, 16, 21, 0.72);
+  --panel-border: rgba(105, 231, 176, 0.28);
+  --text-primary: #f5f7fa;
+  --text-secondary: rgba(245, 247, 250, 0.72);
+  --text-tertiary: rgba(245, 247, 250, 0.48);
+  --accent: #69e7b0;
+  --accent-strong: #70efba;
+  --warn: #f5b700;
+  --danger: #ff5f5f;
+  --success: #69e7b0;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: color-mix(in srgb, var(--accent) 55%, transparent) transparent;
+}
+
+*::-webkit-scrollbar {
+  width: 6px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, rgba(105, 231, 176, 0.6) 0%, rgba(105, 231, 176, 0.25) 100%);
+  border-radius: 999px;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  font-family: "Manrope", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--bg);
+  color: var(--text-primary);
+  line-height: 1.6;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+[data-mono] {
+  font-family: "DM Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+.glass-panel {
+  backdrop-filter: blur(14px) saturate(120%);
+  -webkit-backdrop-filter: blur(14px) saturate(120%);
+  background: var(--panel);
+  border: 1px solid var(--panel-border);
+  box-shadow: 0 40px 80px -60px color-mix(in srgb, var(--accent) 45%, transparent);
+}
+
+.glass-chip {
+  backdrop-filter: blur(10px) saturate(118%);
+  -webkit-backdrop-filter: blur(10px) saturate(118%);
+  background: radial-gradient(220px 80px at 50% 0%, color-mix(in srgb, var(--accent) 18%, transparent) 0%, rgba(12, 16, 21, 0.82) 100%);
+  border: 1px solid color-mix(in srgb, var(--accent) 48%, transparent);
+}
+
+.text-shadow-strong {
+  text-shadow: 0 10px 60px rgba(8, 11, 16, 0.9), 0 2px 18px rgba(5, 7, 10, 0.95);
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+html[data-text-scale="large"] {
+  font-size: 18px;
+}
+
+html[data-text-scale="largest"] {
+  font-size: 20px;
+}
+
+html[data-color-vision="red-green"] {
+  --accent: #56b4e9;
+  --accent-strong: #56b4e9;
+  --success: #0072b2;
+  --danger: #d55e00;
+  --warn: #e69f00;
+  --panel-border: color-mix(in srgb, #56b4e9 60%, transparent);
+}
+
+html[data-color-vision="blue-yellow"] {
+  --accent: #cc79a7;
+  --accent-strong: #cc79a7;
+  --success: #009e73;
+  --danger: #d55e00;
+  --warn: #56b4e9;
+  --panel-border: color-mix(in srgb, #cc79a7 60%, transparent);
+}
+
+html[data-color-vision="monochrome"] {
+  --accent: #ffffff;
+  --accent-strong: #ffffff;
+  --success: #eeeeee;
+  --danger: #d0d0d0;
+  --warn: #aaaaaa;
+  --panel-border: rgba(255, 255, 255, 0.65);
+}
+
+html.a11y-high-contrast {
+  --panel: rgba(0, 0, 0, 0.96);
+  --panel-border: color-mix(in srgb, var(--accent) 82%, white);
+  --text-primary: #ffffff;
+  --text-secondary: rgba(255, 255, 255, 0.96);
+  --text-tertiary: rgba(255, 255, 255, 0.84);
+}
+
+html.a11y-reduce-motion *,
+html.a11y-reduce-motion *::before,
+html.a11y-reduce-motion *::after {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  scroll-behavior: auto !important;
+  transition-duration: 0.01ms !important;
+}
+
+:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+}

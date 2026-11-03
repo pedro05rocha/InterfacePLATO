@@ -1,0 +1,7 @@
+Modo de condução: tras
+
+Coloca nesta pasta os quatro vídeos deste modo:
+- frente.mp4
+- velocidade.mp4
+- mapa.mp4
+- traseira.mp4
